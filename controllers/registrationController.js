@@ -1,5 +1,6 @@
 const emailRegex = require('../helpers/emailRegex')
-const registrationController = (req,res)=>{
+const UserSchema = require('../models/userSchema')
+const registrationController =async(req,res)=>{
     let {username,email,password}=req.body
 
     if(!username){
@@ -13,11 +14,22 @@ const registrationController = (req,res)=>{
         res.send("password is required")
     }
     else{
-        console.log("database e data jave");
         
-    }
-    
+    let existingData = await UserSchema.find({email:email})
+     if(existingData.length>0){
+        res.send("Data Already Existed")
 
+     }else{
+         let data = new UserSchema({
+            username,
+            email,
+            password
+        })
+        data.save()
+        res.send("database e data geche")
+     }  
+    }
 }
 
 module.exports = registrationController
+

@@ -1,7 +1,12 @@
+require('dotenv').config()
 const express = require('express');
-const route  = require('./route');
 const app = express()
+const route  = require('./route');
+const mongodbConfig = require('./dbConfig/mongodbConfig');
 const port = 5000
+
+
+mongodbConfig()
 
 app.use(express.json())
 app.use(route)
