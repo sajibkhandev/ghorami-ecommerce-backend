@@ -7,5 +7,7 @@ const mongodbConfig = ()=>{
 }
 module.exports = mongodbConfig
 
+// mongodb+srv://esnode2601:BdynUVUPJMAJMYHy@cluster0.ehsx8n2.mongodb.net/test?appName=Cluster0
+
 
 

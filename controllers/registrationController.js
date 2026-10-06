@@ -26,7 +26,7 @@ const registrationController =async(req,res)=>{
             password
         })
         data.save()
-        res.send("database e data geche")
+        res.send("registration successfully")
      }  
     }
 }
