@@ -17,7 +17,7 @@ const registrationController =async(req,res)=>{
         
     let existingData = await UserSchema.find({email:email})
      if(existingData.length>0){
-        res.send("Data Already Existed")
+        res.send({error:"User Already Existed"})
 
      }else{
          let data = new UserSchema({
@@ -26,7 +26,12 @@ const registrationController =async(req,res)=>{
             password
         })
         data.save()
-        res.send("registration successfully")
+        res.send(
+            {
+                email:data.email,
+                username:data.username,
+                success:"Registration Successfully"
+            })
      }  
     }
 }
