@@ -2,7 +2,8 @@ const emailRegex = require('../helpers/emailRegex')
 const UserSchema = require('../models/userSchema')
 const bcrypt = require('bcrypt')
 const otpGenerator = require('otp-generator')
-const nodemailer = require("nodemailer");
+const emailVerification = require('../helpers/emailVerification')
+
 
 const registrationController = async (req, res) => {
     let { username, email, password } = req.body
@@ -46,9 +47,17 @@ const registrationController = async (req, res) => {
                         success: "Registration Successfully"
                     })
 
+                    // Email Send
+                   emailVerification(email,otp)
+
             });
 
             
+
+          
+           
+
+
 
 
 
