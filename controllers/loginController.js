@@ -8,12 +8,17 @@ const loginController = async (req, res) => {
   // console.log(existingdata);
 
   if (existingdata.length > 0) {
-    bcrypt.compare(password, existingdata[0].password, function (err, result) {
+   
+     bcrypt.compare(password, existingdata[0].password, function (err, result) {
       if(result){
+        if(existingdata[0].emailVerification){
         res.send({success:"Login Successfully"})
+        }else{
+          res.send({error:"Verify Your Email"})
+
+        }
       }else{
         res.send({ error: "Invalid Cradrintial" })
-
       }
     });
 
