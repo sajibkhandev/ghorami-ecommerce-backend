@@ -12,7 +12,12 @@ const loginController = async (req, res) => {
      bcrypt.compare(password, existingdata[0].password, function (err, result) {
       if(result){
         if(existingdata[0].emailVerification){
-        res.send({success:"Login Successfully"})
+        res.send({
+          success:"Login Successfully",
+          email:existingdata[0].email,
+          username:existingdata[0].username,
+          emailVerification:existingdata[0].emailVerification
+        })
         }else{
           res.send({error:"Verify Your Email"})
 
