@@ -7,6 +7,7 @@ const mongodbConfig = require('./dbConfig/mongodbConfig');
 const port = 5000
 
 
+
 mongodbConfig()
 
 app.use(express.json())
