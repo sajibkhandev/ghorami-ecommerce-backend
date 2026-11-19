@@ -6,6 +6,7 @@ const Otp = require('./authRoutes/otp')
 const Forgetpassword = require('./authRoutes/forgetpassword')
 const Changepassword = require('./authRoutes/changepassword')
 const CreateCategory = require('./productRoutes/createCategory')
+const ViewCategory = require('./productRoutes/viewCategory')
 
 _.use('/authentication',Registration)
 _.use('/authentication',Login)
@@ -14,6 +15,7 @@ _.use('/authentication',Forgetpassword)
 _.use('/authentication',Changepassword)
 
 _.use('/product',CreateCategory)
+_.use('/product',ViewCategory)
 
 
 module.exports=_

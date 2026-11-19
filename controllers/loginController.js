@@ -14,6 +14,7 @@ const loginController = async (req, res) => {
         if(existingdata[0].emailVerification){
         res.send({
           success:"Login Successfully",
+          id:existingdata[0]._id,
           email:existingdata[0].email,
           username:existingdata[0].username,
           emailVerification:existingdata[0].emailVerification
